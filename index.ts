@@ -1,6 +1,8 @@
-import { Account } from './entitys/account';
 
-const pedrosAccount = new Account(
+import { phisicPeopleAccount } from './entitys/pf/phisic_people_account';
+import { juridicPeopleAccount } from './entitys/pj/juridic_people_account';
+
+const pedrosAccount = new phisicPeopleAccount(
     'Pedro Lucas',
     1550,
 );
