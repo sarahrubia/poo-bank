@@ -1,48 +1,53 @@
 "use strict";
 // É uma boa prática nomear a classe com o nome do arquivo
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Account = void 0;
-var Account = /** @class */ (function () {
+// Como a classe não está mais sendo referenciada em nenhum lugar e apenas as classes herdadas estão sendo utilizadas, esta se torna uma classe abstrata. Ela não pode mais ser diretamente instanciada.
+class Account {
     // A classe tem construtores
-    function Account(nameOfHolder, amount) {
+    constructor(nameOfHolder, amount) {
         // Passando valores dos construtores para os atributos 
         this._numberOfAccount = this.generateNumberOfAccount();
         this.nameOfHolder = nameOfHolder;
         this._amount = amount;
     }
-    Object.defineProperty(Account.prototype, "getAmount", {
-        // Acessando valores privados
-        get: function () {
-            return this._amount;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(Account.prototype, "getNumberOfAccount", {
-        get: function () {
-            return this._numberOfAccount;
-        },
-        enumerable: false,
-        configurable: true
-    });
+    // Acessando valores privados
+    get getAmount() {
+        return this._amount;
+    }
+    get getNumberOfAccount() {
+        return this._numberOfAccount;
+    }
     // Métodos
+    openAccount() {
+        if (this._numberOfAccount != null) {
+            return true;
+        }
+        else {
+            false;
+        }
+    }
+    // modifyNumberOfAccount(){
+    //     this._numberOfAccount = 0;
+    // // como numberOfAccount foi setada para readonly, ela não pode ser alterada
+    // }
     // Diferença protected e private: 
     // private é visto apenas pela classe;
     // protected é visto pela própria classe e heranças da classe.
-    Account.prototype.generateNumberOfAccount = function () {
+    generateNumberOfAccount() {
         return Math.floor(Math.random() * 1000) + 1;
-    };
-    Account.prototype.consultAmount = function () {
-        var response = "Seu saldo atual \u00E9: ".concat(this._amount);
+    }
+    consultAmount() {
+        let response = `Seu saldo atual é: ${this._amount}`;
         console.log(response);
         return response;
-    };
-    Account.prototype.addValueToAmount = function (value) {
+    }
+    addValueToAmount(value) {
         // this.amount = this.amount + value;
         this._amount = this._amount += value;
         console.log(this._amount);
-    };
-    Account.prototype.removeValueOfAmount = function (value) {
+    }
+    removeValueOfAmount(value) {
         if (this._amount <= 0) {
             console.log('ERRO: Você não possui saldo.');
             return false;
@@ -57,7 +62,6 @@ var Account = /** @class */ (function () {
             console.log('SUCESSO: Operação realizada.');
             return true;
         }
-    };
-    return Account;
-}());
+    }
+}
 exports.Account = Account;

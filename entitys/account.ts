@@ -1,8 +1,10 @@
 // É uma boa prática nomear a classe com o nome do arquivo
 
-export class Account{
+// Como a classe não está mais sendo referenciada em nenhum lugar e apenas as classes herdadas estão sendo utilizadas, esta se torna uma classe abstrata. Ela não pode mais ser diretamente instanciada.
+
+export abstract class Account {
     // A classe tem atributos
-    private _numberOfAccount:number; 
+    private readonly _numberOfAccount:number; 
     // private (e underline antes do atributo) é utilizado para tornar uma informação privada.
     // Essa propriedade só é acessível na classe
     nameOfHolder:string;
@@ -30,6 +32,19 @@ export class Account{
     }
 
     // Métodos
+
+    openAccount():boolean{
+        if (this._numberOfAccount != null) {
+            return true;
+        } else {
+            false;
+        }
+    }
+
+    // modifyNumberOfAccount(){
+    //     this._numberOfAccount = 0;
+    // // como numberOfAccount foi setada para readonly, ela não pode ser alterada
+    // }
 
     // Diferença protected e private: 
     // private é visto apenas pela classe;

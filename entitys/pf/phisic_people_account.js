@@ -1,27 +1,20 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.phisicPeopleAccount = void 0;
-var account_1 = require("../account");
-var phisicPeopleAccount = /** @class */ (function (_super) {
-    __extends(phisicPeopleAccount, _super);
-    function phisicPeopleAccount() {
-        return _super !== null && _super.apply(this, arguments) || this;
+const account_1 = require("../account");
+class phisicPeopleAccount extends account_1.Account {
+    //  Criar um construtor para sobescrever o 
+    // construtor da classe pai Account
+    constructor(cpf, name, email, nameOfHolder, amount) {
+        // Chamada da classe pai com super() e passagem dos parâmetros
+        super(nameOfHolder, amount);
+        //  Passando novo atributo
+        this.cpf = cpf;
+        this.name = name;
+        this.email = email;
     }
-    return phisicPeopleAccount;
-}(account_1.Account));
+    getCpf() {
+        return this.cpf;
+    }
+}
 exports.phisicPeopleAccount = phisicPeopleAccount;
