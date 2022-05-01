@@ -1,0 +1,12 @@
+{
+  "name": "banco",
+  "version": "1.0.0",
+  "description": "\"aprendendo typescript\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "sarah rubia",
+  "license": "ISC",
+  "keywords": []
+}
